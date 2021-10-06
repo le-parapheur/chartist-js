@@ -1,8 +1,8 @@
 {
-  "name": "chartist",
+  "name": "@riton/chartist",
   "title": "Chartist.js",
   "description": "Simple, responsive charts",
-  "version": "0.11.4",
+  "version": "0.11.6",
   "author": "Gion Kunz",
   "homepage": "https://gionkunz.github.io/chartist-js",
   "repository": {

@@ -1,19 +1,21 @@
-$scale-minor-second: 15/16;
-$scale-major-second: 8/9;
-$scale-minor-third: 5/6;
-$scale-major-third: 4/5;
-$scale-perfect-fourth: 3/4;
-$scale-perfect-fifth: 2/3;
-$scale-minor-sixth: 5/8;
-$scale-golden-section: 1/1.618;
-$scale-major-sixth: 3/5;
-$scale-minor-seventh: 9/16;
-$scale-major-seventh: 8/15;
-$scale-octave: 1/2;
-$scale-major-tenth: 2/5;
-$scale-major-eleventh: 3/8;
-$scale-major-twelfth: 1/3;
-$scale-double-octave: 1/4;
+@use "sass:math";
+
+$scale-minor-second: math.div(15, 16);
+$scale-major-second: math.div(8, 9);
+$scale-minor-third: math.div(5, 6);
+$scale-major-third: 4*0.2;
+$scale-perfect-fourth: 3*0.25;
+$scale-perfect-fifth: math.div(2, 3);
+$scale-minor-sixth: 5*0.125;
+$scale-golden-section: math.div(1, 1.618);
+$scale-major-sixth: 3*0.2;
+$scale-minor-seventh: math.div(9, 16);
+$scale-major-seventh: math.div(8, 15);
+$scale-octave: 1*0.5;
+$scale-major-tenth: 2*0.2;
+$scale-major-eleventh: 3*0.125;
+$scale-major-twelfth: math.div(1, 3);
+$scale-double-octave: 1*0.25;
 
 @function generateScale($base: 16, $scale-type: $scale-golden-section, $limit-lower: 6, $limit-upper: 100) {
   $scale: ();
@@ -31,7 +33,7 @@ $scale-double-octave: 1/4;
 
   $value: $base;
   @while $value < $limit-upper {
-    $value: $value / $scale-type;
+    $value: math.div($value, $scale-type);
     @if $value < $limit-upper {
       $scale: append($scale, $value);
     }

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .landing-page-header {
   background-color: $color-yellow;
   text-align: center;
@@ -52,7 +54,7 @@
 
     > figure {
       margin: 0;
-      @include ct-responsive-svg-container($ratio: (1/1));
+      @include ct-responsive-svg-container($ratio: math.div(1, 1));
 
       > svg {
         width: 100%;
@@ -64,8 +66,8 @@
   > .call-to-action {
     text-align: center;
     padding-bottom: $column-gutter;
-    padding-left: $column-gutter / 2;
-    padding-right: $column-gutter / 2;
+    padding-left: $column-gutter * 0.5;
+    padding-right: $column-gutter * 0.5;
 
     > .button {
       color: white;
@@ -96,7 +98,7 @@
 
       @media #{$medium-up} {
         &.download {
-          margin-right: $column-gutter / 2;
+          margin-right: $column-gutter * 0.5;
         }
       }
     }
